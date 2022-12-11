@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Cross Product</title>
+    <link rel="stylesheet" type="text/css" href="../../page.css">
+    <script src="../../vector.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../ace/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="draw.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body style="background: #292a2f" onload="initCanvas();">
+
+<h2 class="pageTitle">Cross Product</h2>
+
+<div class="pageContainer">
+
+    <div id="canvasContainer" class="element">
+        <canvas id="canvas" style="background: #ffffff; width: 100%; height: 100%"></canvas>
+    </div>
+    <div id="editor"  class="element"></div>
+</div>
+<script>
+    var js = null;
+    function updateScript() {
+        if (js !== null) {
+            js.remove();
+        }
+        js = document.createElement('script');
+        const editor = ace.edit("editor");
+        js.text = editor.getSession().getValue();
+        document.body.append(js);
+    }
+
+    $("#editor").load("editor.js", function() {
+
+        const editor = ace.edit("editor");
+        editor.setTheme("ace/theme/Ambiance");
+        editor.session.setMode("ace/mode/javascript");
+        editor.getSession().on('change', function() {
+            updateScript();
+        });
+        updateScript();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Visual Math</title>
+    <style>
+        .gridContainer {
+            display: grid;
+            grid-template-columns: minmax(400px, 800px) 1fr;
+            grid-template-rows: minmax(400px, auto);
+        }
+    </style>
+</head>
+<body style="background: #292a2f">
+<div class="gridContainer">
+    <div style="background: #ff00ff;">One</div>
+    <div id="editor" style="">
+    </div>
+</div>
+<script src="ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+
+
+    const editor = ace.edit("editor");
+    editor.setTheme("ace/theme/Ambiance");
+    editor.session.setMode("ace/mode/javascript");
+</script>
+</body>
+</html>
