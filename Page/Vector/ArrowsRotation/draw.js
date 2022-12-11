@@ -1,5 +1,5 @@
 let points = [new Vec(500, 500), new Vec(900, 700), new Vec(200, 200)];
-const dotRadius = 40;
+let dotRadius = 40;
 let dragIndex = -1;
 let canvas;
 function initCanvas() {
@@ -19,6 +19,10 @@ function initCanvas() {
     canvas.addEventListener('mouseup', handleMouseUp);
     canvas.addEventListener('mousemove', handleMouseMove);
     canvas.addEventListener('mouseout', handleMouseUp);
+
+    if (canvas.width < 1000) {
+        dotRadius = 1000;
+    }
 
     draw();
 }
